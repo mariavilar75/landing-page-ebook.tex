@@ -120,23 +120,36 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(s => sectionObserver.observe(s));
 
   // ----------------------------------------------------------
-  // 6. HERO CARD TILT (mouse parallax)
+  // 6. HERO IMAGE — parallax 3D leve (segue o cursor)
   // ----------------------------------------------------------
-  const heroCard = document.querySelector('.hero__card');
+  const heroStage = document.getElementById('heroStage');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (heroCard) {
-    const heroVisual = heroCard.closest('.hero__visual');
+  if (heroStage && !prefersReducedMotion) {
+    const hero = heroStage.closest('.hero');
+    let raf = null;
 
-    heroVisual.addEventListener('mousemove', (e) => {
-      const rect = heroVisual.getBoundingClientRect();
+    const onMove = (e) => {
+      const rect = hero.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width  - 0.5;
       const y = (e.clientY - rect.top)  / rect.height - 0.5;
-      heroCard.style.transform = `perspective(900px) rotateX(${y * -6}deg) rotateY(${x * 6}deg) translateY(-4px)`;
-    });
 
-    heroVisual.addEventListener('mouseleave', () => {
-      heroCard.style.transform = '';
-    });
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        heroStage.style.transition = 'transform 0.18s var(--ease-out)';
+        heroStage.style.transform =
+          `rotateX(${y * -5}deg) rotateY(${x * 7}deg) translate3d(${x * 14}px, ${y * 10}px, 0)`;
+      });
+    };
+
+    const onLeave = () => {
+      if (raf) cancelAnimationFrame(raf);
+      heroStage.style.transition = 'transform 0.6s var(--ease-out)';
+      heroStage.style.transform = '';
+    };
+
+    hero.addEventListener('mousemove', onMove);
+    hero.addEventListener('mouseleave', onLeave);
   }
 
 });
