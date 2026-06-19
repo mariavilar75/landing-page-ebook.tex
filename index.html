@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ebook.tex — Estúdio especializado em produção editorial de ebooks. Estruturação, diagramação e identidade visual para o seu conteúdo.">
-  <meta name="theme-color" content="#F7F3EE">
+  <meta name="theme-color" content="#14201A">
 
   <meta property="og:title" content="ebook.tex — Produção Editorial de Ebooks">
   <meta property="og:description" content="Estrutura editorial, identidade visual e diagramação profissional para transformar conhecimento em material digital pronto para distribuição.">
@@ -13,7 +13,8 @@
   <meta property="og:locale" content="pt_BR">
 
   <link rel="preload" href="fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="fonts/Oswald/Oswald-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="img/first_page_img.png" as="image" fetchpriority="high">
 
   <title>ebook.tex — Produção Editorial de Ebooks</title>
 
@@ -52,10 +53,15 @@
   </header>
 
   <section class="hero" id="hero">
-    <div class="hero__ornament" aria-hidden="true"></div>
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__backdrop" aria-hidden="true" data-parallax="0.06">tex</div>
+    <span class="crop crop--tl" aria-hidden="true"></span>
+    <span class="crop crop--tr" aria-hidden="true"></span>
+    <span class="crop crop--bl" aria-hidden="true"></span>
+    <span class="crop crop--br" aria-hidden="true"></span>
     <div class="container hero__inner">
       <div class="hero__content">
-        <p class="hero__badge">Estúdio editorial</p>
+        <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Estúdio editorial</p>
         <h1 class="hero__title">
           Produção editorial<br>
           de <span class="hero__title-accent">ebooks</span>
@@ -72,15 +78,17 @@
           <a href="#portfolio" class="btn btn--outline">Ver portfólio</a>
         </div>
       </div>
-      <div class="hero__visual" aria-hidden="true">
+      <figure class="hero__visual" aria-hidden="true">
         <div class="hero__visual-stage" id="heroStage">
-          <span class="hero__glow"></span>
-          <img src="img/first_page_img.png" alt="" class="hero__image" id="heroImage" width="1102" height="735" fetchpriority="high">
+          <span class="hero__halo" data-parallax="-0.04"></span>
+          <img src="img/first_page_img.png" alt="" class="hero__image" id="heroImage" width="1102" height="735" fetchpriority="high" data-parallax="0.1">
           <span class="hero__shadow"></span>
         </div>
-      </div>
+        <figcaption class="hero__caption">fig. 01 — diagramação</figcaption>
+      </figure>
     </div>
     <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-label">rolar</span>
       <span class="hero__scroll-line"></span>
     </div>
   </section>

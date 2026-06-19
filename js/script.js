@@ -120,36 +120,64 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(s => sectionObserver.observe(s));
 
   // ----------------------------------------------------------
-  // 6. HERO IMAGE — parallax 3D leve (segue o cursor)
+  // 6. HERO — parallax 3D do palco + camadas de profundidade
   // ----------------------------------------------------------
-  const heroStage = document.getElementById('heroStage');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const heroStage = document.getElementById('heroStage');
+  const hero = document.getElementById('hero');
 
-  if (heroStage && !prefersReducedMotion) {
-    const hero = heroStage.closest('.hero');
-    let raf = null;
+  if (heroStage && hero && !prefersReducedMotion && finePointer) {
+    const layers = hero.querySelectorAll('[data-parallax]');
+    let raf = null, tx = 0, ty = 0;
 
     const onMove = (e) => {
       const rect = hero.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width  - 0.5;
-      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      tx = (e.clientX - rect.left) / rect.width  - 0.5;
+      ty = (e.clientY - rect.top)  / rect.height - 0.5;
 
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        heroStage.style.transition = 'transform 0.18s var(--ease-out)';
+        heroStage.style.transition = 'transform 0.2s var(--e-out)';
         heroStage.style.transform =
-          `rotateX(${y * -5}deg) rotateY(${x * 7}deg) translate3d(${x * 14}px, ${y * 10}px, 0)`;
+          `rotateX(${ty * -4}deg) rotateY(${tx * 6}deg) translate3d(${tx * 10}px, ${ty * 8}px, 0)`;
+        layers.forEach(layer => {
+          const depth = parseFloat(layer.dataset.parallax) || 0;
+          layer.style.transform = `translate3d(${tx * depth * 100}px, ${ty * depth * 100}px, 0)`;
+        });
       });
     };
 
     const onLeave = () => {
       if (raf) cancelAnimationFrame(raf);
-      heroStage.style.transition = 'transform 0.6s var(--ease-out)';
+      heroStage.style.transition = 'transform 0.6s var(--e-out)';
       heroStage.style.transform = '';
+      layers.forEach(layer => {
+        layer.style.transition = 'transform 0.6s var(--e-out)';
+        layer.style.transform = '';
+      });
     };
 
     hero.addEventListener('mousemove', onMove);
     hero.addEventListener('mouseleave', onLeave);
+  }
+
+  // ----------------------------------------------------------
+  // 7. BOTÕES MAGNÉTICOS — atração sutil ao cursor
+  // ----------------------------------------------------------
+  if (finePointer && !prefersReducedMotion) {
+    document.querySelectorAll('.btn').forEach(btn => {
+      const strength = 0.28;
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const mx = e.clientX - r.left - r.width / 2;
+        const my = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${mx * strength}px, ${my * strength}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
   }
 
 });
