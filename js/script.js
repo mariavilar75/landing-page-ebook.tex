@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('header');
 
   const onScroll = () => {
-    header.classList.toggle('header--scrolled', window.scrollY > 40);
+    header.classList.toggle('header--scrolled', window.scrollY > 60);
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -46,10 +46,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 3. SCROLL REVEAL
+  // 3. SCROLL REVEAL — com stagger por grupo
   // ----------------------------------------------------------
+  const staggerGroups = document.querySelectorAll(
+    '.grid--3, .grid--2, .deliverables, .portfolio, .testimonials, .timeline'
+  );
+
+  staggerGroups.forEach(group => {
+    Array.from(group.children).forEach((child, i) => {
+      child.style.setProperty('--stagger-delay', `${i * 75}ms`);
+    });
+  });
+
   const revealElements = document.querySelectorAll(
-    '.card, .deliverable, .timeline__item, .portfolio__item, .testimonial, .section__header'
+    '.card, .deliverable, .timeline__item, .portfolio__item, .testimonial, .section__header, .faq__item'
   );
 
   if (revealElements.length) {
@@ -61,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, {
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.06,
+      rootMargin: '0px 0px -36px 0px'
     });
 
     revealElements.forEach(el => {
@@ -85,28 +95,48 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ----------------------------------------------------------
-  // 5. (removed — CTA form was replaced by WhatsApp CTA)
+  // 5. ACTIVE NAV LINK on scroll
   // ----------------------------------------------------------
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav__link[href^="#"]');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navAnchors.forEach(a => {
+          a.classList.toggle(
+            'nav__link--active',
+            a.getAttribute('href') === `#${id}` && !a.classList.contains('nav__link--cta')
+          );
+        });
+      }
+    });
+  }, {
+    rootMargin: '-40% 0px -55% 0px',
+    threshold: 0,
+  });
+
+  sections.forEach(s => sectionObserver.observe(s));
 
   // ----------------------------------------------------------
-  // 6. HERO IMAGE TILT
+  // 6. HERO CARD TILT (mouse parallax)
   // ----------------------------------------------------------
-  const heroImage = document.getElementById('heroImage');
+  const heroCard = document.querySelector('.hero__card');
 
-  if (heroImage) {
-    heroImage.addEventListener('mousemove', (e) => {
-      const rect = heroImage.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -3;
-      const rotateY = ((x - centerX) / centerX) * 3;
-      heroImage.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.18)`;
+  if (heroCard) {
+    const heroVisual = heroCard.closest('.hero__visual');
+
+    heroVisual.addEventListener('mousemove', (e) => {
+      const rect = heroVisual.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      heroCard.style.transform = `perspective(900px) rotateX(${y * -6}deg) rotateY(${x * 6}deg) translateY(-4px)`;
     });
 
-    heroImage.addEventListener('mouseleave', () => {
-      heroImage.style.transform = `rotateX(0deg) rotateY(0deg) scale(1.18)`;
+    heroVisual.addEventListener('mouseleave', () => {
+      heroCard.style.transform = '';
     });
   }
+
 });
