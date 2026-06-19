@@ -43,6 +43,9 @@
   --font-serif: 'Fraunces', 'Georgia', 'Times New Roman', serif;
   --font-deco:  'Gloock', 'Fraunces', 'Georgia', serif;
   --font-sans:  'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* títulos das seções: sans moderna, elegante e de alta legibilidade
+     (Fraunces fica reservada exclusivamente ao título da Hero) */
+  --font-display: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono:  ui-monospace, 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', Menlo, Consolas, monospace;
 
   /* ---- Layout ---- */
@@ -576,13 +579,12 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .section__title {
   grid-column: 1;
-  font-family: var(--font-serif);
-  font-weight: 350;
-  font-size: clamp(2rem, 4.6vw, 3.4rem);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.6vw, 3.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
   color: var(--ink);
-  font-variation-settings: 'opsz' 120;
   text-wrap: balance;
 }
 #portfolio .section__title { color: var(--paper-2); }
@@ -656,10 +658,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .card:hover .card__icon { color: var(--ember); transform: translateY(-2px); }
 
 .card__title {
-  font-family: var(--font-serif);
-  font-weight: 480;
-  font-size: 1.32rem;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.28rem;
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin-bottom: 0.7rem;
 }
@@ -720,10 +722,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   transform: rotate(-6deg);
 }
 .deliverable__title {
-  font-family: var(--font-serif);
-  font-weight: 500;
-  font-size: 1.08rem;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: 0.15rem;
 }
@@ -736,15 +738,27 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 /* ============================================================
    TIMELINE (Processo) — lista editorial com numerais display
    ============================================================ */
+
+/* Masthead do processo: título curto + descrição agrupados à esquerda,
+   evitando o vão excessivo entre "Como funciona" e o texto ao lado.
+   Restrito ao desktop para não competir com o empilhamento mobile. */
+@media (min-width: 1025px) {
+  #processo .section__header {
+    grid-template-columns: minmax(0, max-content) minmax(0, 30rem);
+    column-gap: clamp(1.75rem, 3.5vw, 3.5rem);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+}
+
 .timeline {
   border-top: 1px solid var(--line-2);
 }
 .timeline__item {
   position: relative;
   display: grid;
-  grid-template-columns: clamp(4.5rem, 12vw, 9rem) 1fr;
+  grid-template-columns: clamp(3.25rem, 6vw, 4.75rem) 1fr;
   align-items: baseline;
-  gap: clamp(1.5rem, 4vw, 4rem);
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
   padding: 2.2rem 0;
   border-bottom: 1px solid var(--line);
   transition: padding-left var(--t) var(--e-out);
@@ -753,7 +767,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .timeline__marker { line-height: 1; }
 .timeline__num {
   font-family: var(--font-deco);
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: clamp(2.1rem, 4vw, 3.1rem);
   color: var(--line-2);
   transition: color var(--t) var(--e-out);
 }
@@ -764,10 +778,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-serif);
-  font-weight: 480;
-  font-size: 1.45rem;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 650;
+  font-size: 1.4rem;
+  letter-spacing: -0.025em;
   color: var(--ink);
   margin-bottom: 0.45rem;
 }
@@ -839,10 +853,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-top: 1px solid var(--line-dark);
 }
 .portfolio__title {
-  font-family: var(--font-serif);
-  font-weight: 460;
-  font-size: 1.12rem;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
   color: var(--paper-2);
 }
 .portfolio__title::before {
@@ -889,11 +903,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .testimonial__text {
   position: relative;
-  font-family: var(--font-serif);
-  font-weight: 380;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 450;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  letter-spacing: -0.015em;
   color: var(--ink);
   margin: 1.6rem 0 2rem;
 }
@@ -921,10 +935,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 .testimonial__name {
   display: block;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 650;
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
   color: var(--ink);
   line-height: 1.2;
 }
@@ -952,10 +967,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   gap: 1.4rem;
   padding: 1.7rem 0.25rem;
   text-align: left;
-  font-family: var(--font-serif);
-  font-weight: 440;
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  letter-spacing: -0.025em;
   color: var(--ink);
   transition: color var(--t-xs);
 }
@@ -1007,14 +1022,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 .cta__inner { position: relative; max-width: 44rem; margin: 0 auto; }
 .cta__title {
-  font-family: var(--font-serif);
-  font-weight: 340;
-  font-size: clamp(2.2rem, 5.5vw, 4rem);
-  line-height: 1.04;
-  letter-spacing: -0.025em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  line-height: 1.07;
+  letter-spacing: -0.035em;
   color: var(--paper-2);
   margin-bottom: 1.5rem;
-  font-variation-settings: 'opsz' 144;
   text-wrap: balance;
 }
 .cta__text {
