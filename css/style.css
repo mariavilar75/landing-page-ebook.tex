@@ -1090,6 +1090,18 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   overflow: hidden;
 }
 
+/* imagem de capa */
+.stack-card__cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 1;
+  display: block;
+}
+
 /* lombada escura na esquerda */
 .stack-card__spine {
   position: absolute;
@@ -1609,4 +1621,79 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   .hero__ann, .hero__caption { opacity: 1 !important; }
   .hero__title-accent::after { transform: scaleX(1); }
   .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ============================================================
+   MODAL PDF VIEWER
+   ============================================================ */
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pdf-modal[hidden] { display: none; }
+
+.pdf-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 16, 13, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: modalFadeIn 280ms var(--e-out) both;
+}
+
+.pdf-modal__container {
+  position: relative;
+  z-index: 1;
+  width: min(860px, 92vw);
+  height: min(90vh, 1100px);
+  background: var(--pine-2);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.45),
+    0 40px 100px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.06);
+  animation: modalSlideUp 340ms var(--e-out) both;
+}
+
+.pdf-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(20, 32, 26, .7);
+  color: var(--paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--t) var(--e-out), border-color var(--t);
+}
+.pdf-modal__close:hover {
+  background: rgba(160, 93, 66, .55);
+  border-color: rgba(160, 93, 66, .6);
+}
+
+.pdf-modal__frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
 }

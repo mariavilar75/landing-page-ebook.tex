@@ -287,4 +287,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ----------------------------------------------------------
+  // 9. MODAL PDF — abre ao clicar em qualquer stack-card
+  // ----------------------------------------------------------
+  const pdfModal    = document.getElementById('pdfModal');
+  const pdfFrame    = document.getElementById('pdfFrame');
+  const pdfClose    = document.getElementById('pdfModalClose');
+  const PDF_SRC     = 'docs/lorem_ipsum_ebook.pdf';
+
+  function openPdfModal() {
+    pdfFrame.src = PDF_SRC;
+    pdfModal.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+    pdfClose.focus();
+  }
+
+  function closePdfModal() {
+    pdfModal.setAttribute('hidden', '');
+    document.body.style.overflow = '';
+    /* limpa o src para parar o carregamento ao fechar */
+    setTimeout(() => { pdfFrame.src = ''; }, 300);
+  }
+
+  if (pdfModal) {
+    /* clique em qualquer card abre o modal */
+    document.querySelectorAll('.stack-card').forEach(card => {
+      card.addEventListener('click', openPdfModal);
+    });
+
+    /* botão fechar */
+    pdfClose.addEventListener('click', closePdfModal);
+
+    /* clique no backdrop fecha */
+    pdfModal.querySelector('.pdf-modal__backdrop')
+      .addEventListener('click', closePdfModal);
+
+    /* Escape fecha */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !pdfModal.hasAttribute('hidden')) {
+        closePdfModal();
+      }
+    });
+  }
+
 });
