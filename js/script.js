@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. SCROLL REVEAL — com stagger por grupo
   // ----------------------------------------------------------
   const staggerGroups = document.querySelectorAll(
-    '.grid--3, .grid--2, .deliverables, .portfolio, .testimonials, .timeline'
+    '.grid--3, .grid--2, .deliverables, .stack-portfolio, .testimonials, .timeline'
   );
 
   staggerGroups.forEach(group => {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const revealElements = document.querySelectorAll(
-    '.card, .deliverable, .timeline__item, .portfolio__item, .testimonial, .section__header, .faq__item'
+    '.card, .deliverable, .timeline__item, .testimonial, .section__header, .faq__item'
   );
 
   if (revealElements.length) {
@@ -176,6 +176,113 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       btn.addEventListener('mouseleave', () => {
         btn.style.transform = '';
+      });
+    });
+  }
+
+  // ----------------------------------------------------------
+  // 8. PORTFOLIO STACK — pilha horizontal com hover reveal
+  // ----------------------------------------------------------
+  const portfolioStack = document.getElementById('portfolioStack');
+
+  if (portfolioStack) {
+    const COVER_W = 260;  /* largura de cada card (px) */
+    const PEEK    = 78;   /* faixa visível de cada card empilhado (≈30%) */
+    const SHIFT   = 182;  /* deslocamento extra ao revelar um card */
+
+    const cards = Array.from(portfolioStack.querySelectorAll('.stack-card'));
+    const N     = cards.length;
+
+    /* posiciona a pilha centrada: totalWidth = PEEK*(N-1) + COVER_W */
+    const totalW = PEEK * (N - 1) + COVER_W;
+    portfolioStack.style.width = totalW + 'px';
+
+    /* aplica as variáveis de transformação em cada card */
+    function setVars(card, tx, ty, sc, zi) {
+      card.style.setProperty('--tx', tx + 'px');
+      card.style.setProperty('--ty', ty + 'px');
+      card.style.setProperty('--sc', sc);
+      card.style.setProperty('--zi', zi);
+    }
+
+    /* estado de repouso: pilha fechada, do fundo para a frente */
+    function resetStack() {
+      cards.forEach((card, j) => {
+        card.classList.remove('is-active');
+        setVars(card, PEEK * j, 0, 1, j + 1);
+      });
+    }
+
+    /* expande o card i, empurra os posteriores para a direita */
+    function activateCard(i) {
+      cards.forEach((card, j) => {
+        card.classList.toggle('is-active', j === i);
+
+        const tx = j <= i
+          ? PEEK * j                    /* esquerda: mantém posição */
+          : PEEK * j + SHIFT;           /* direita: afasta para revelar */
+
+        const sc = j === i ? 1.04 : 1;
+        const zi = j === i ? N + 1 : j + 1;
+
+        setVars(card, tx, 0, sc, zi);
+      });
+    }
+
+    /* microinteração de respiração ao entrar na seção */
+    function breathe() {
+      if (prefersReducedMotion) return;
+      cards.forEach((card, j) => {
+        card.style.transition =
+          `transform ${320 + j * 40}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+        card.style.setProperty('--ty', '-8px');
+      });
+      setTimeout(() => {
+        cards.forEach(card => {
+          card.style.setProperty('--ty', '0px');
+        });
+        /* restaura transição padrão depois da respiração */
+        setTimeout(() => {
+          cards.forEach(card => { card.style.transition = ''; });
+        }, 600);
+      }, 220);
+    }
+
+    /* inicializa a pilha */
+    resetStack();
+
+    /* interação por hover em cada card */
+    cards.forEach((card, i) => {
+      card.addEventListener('mouseenter', () => activateCard(i));
+    });
+
+    /* reset ao sair da pilha inteira */
+    portfolioStack.addEventListener('mouseleave', resetStack);
+
+    /* respiração na primeira vez que a seção entra no viewport */
+    let breathed = false;
+    const breatheObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !breathed) {
+          breathed = true;
+          setTimeout(breathe, 300);
+          breatheObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    breatheObserver.observe(portfolioStack);
+
+    /* suporte a teclado: Tab entre cards, Enter/Space para ativar */
+    cards.forEach((card, i) => {
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('focus',   () => activateCard(i));
+      card.addEventListener('blur',    () => resetStack());
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateCard(i);
+        }
       });
     });
   }
