@@ -14,7 +14,7 @@
 
   <link rel="preload" href="fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="fonts/Fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="img/first_page_img.png" as="image" fetchpriority="high">
+  <link rel="preload" href="img/new_image_hero.png" as="image" fetchpriority="high">
 
   <title>ebook.tex — Produção Editorial de Ebooks</title>
 
@@ -41,7 +41,7 @@
           <span class="nav__toggle-bar"></span>
         </button>
         <ul class="nav__list" id="navList">
-          <li><a href="#sobre" class="nav__link">Sobre</a></li>
+          <li><a href="#proposta" class="nav__link">Sobre</a></li>
           <li><a href="#entregaveis" class="nav__link">Entregáveis</a></li>
           <li><a href="#processo" class="nav__link">Processo</a></li>
           <li><a href="#portfolio" class="nav__link">Portfólio</a></li>
@@ -54,21 +54,24 @@
 
   <section class="hero" id="hero">
     <div class="hero__grid" aria-hidden="true"></div>
-    <div class="hero__backdrop" aria-hidden="true" data-parallax="0.06">tex</div>
     <span class="crop crop--tl" aria-hidden="true"></span>
     <span class="crop crop--tr" aria-hidden="true"></span>
     <span class="crop crop--bl" aria-hidden="true"></span>
     <span class="crop crop--br" aria-hidden="true"></span>
+
     <div class="container hero__inner">
       <div class="hero__content">
-        <p class="hero__badge"><span class="hero__badge-dot" aria-hidden="true"></span>Estúdio editorial</p>
+        <p class="hero__badge">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Estúdio editorial
+        </p>
         <h1 class="hero__title">
-          Produção editorial<br>
-          de <span class="hero__title-accent">ebooks</span>
+          Conteúdo que<br>
+          imprime<br>
+          <em class="hero__title-accent">autoridade.</em>
         </h1>
         <p class="hero__subtitle">
-          Estruturação de conteúdo, identidade visual e diagramação profissional
-          para transformar conhecimento em materiais digitais prontos para distribuição.
+          Seu conhecimento merece mais do que um PDF comum.
         </p>
         <div class="hero__actions">
           <a href="#contato" class="btn btn--primary">
@@ -77,19 +80,57 @@
           </a>
           <a href="#portfolio" class="btn btn--outline">Ver portfólio</a>
         </div>
+        <ul class="hero__services" aria-label="O que entregamos">
+          <li>Estruturação editorial</li>
+          <li>Identidade visual</li>
+          <li>Diagramação profissional</li>
+          <li>Entrega em PDF</li>
+        </ul>
       </div>
+
       <figure class="hero__visual" aria-hidden="true">
-        <div class="hero__visual-stage" id="heroStage">
+        <div class="hero__visual-frame" id="heroStage">
           <span class="hero__halo" data-parallax="-0.04"></span>
-          <img src="img/first_page_img.png" alt="" class="hero__image" id="heroImage" width="1102" height="735" fetchpriority="high" data-parallax="0.1">
+          <div class="hero__book-stack">
+            <img src="img/new_image_hero.png" alt="" class="hero__image" id="heroImage"
+                 fetchpriority="high">
+          </div>
           <span class="hero__shadow"></span>
         </div>
-        <figcaption class="hero__caption">fig. 01 — diagramação</figcaption>
+        <div class="hero__annotations" aria-hidden="true">
+          <span class="hero__ann hero__ann--tl">
+            <span class="hero__ann-line"></span>
+            <span class="hero__ann-label">diagramação</span>
+          </span>
+        </div>
+        <figcaption class="hero__caption">fig. 01 — ebook.tex</figcaption>
       </figure>
     </div>
+
     <div class="hero__scroll" aria-hidden="true">
       <span class="hero__scroll-label">rolar</span>
       <span class="hero__scroll-line"></span>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="proposta">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">O estúdio</span>
+        <h2 class="section__title">Nossa proposta</h2>
+      </div>
+      <div class="proposta">
+        <div class="proposta__body">
+          <p class="proposta__lead">A ebook.tex é um estúdio especializado na produção editorial de materiais digitais para profissionais, especialistas e empresas que desejam transformar conhecimento em publicações com padrão profissional.</p>
+          <p>Cada projeto é construído a partir de uma metodologia que integra estrutura editorial, identidade visual e diagramação profissional, transformando conhecimento em materiais digitais preparados para informar, representar e gerar credibilidade.</p>
+          <p>O processo pode partir de um conteúdo já existente, como documentos, rascunhos ou materiais de apoio fornecidos pelo cliente, ou ser desenvolvido desde o início, a partir de uma ideia, objetivo ou tema definido no briefing.</p>
+          <p class="proposta__closing">Mais do que diagramar páginas, a ebook.tex desenvolve publicações pensadas para comunicar com precisão e profissionalismo.</p>
+        </div>
+        <figure class="proposta__visual">
+          <img src="img/a_nossa_proposta.png" alt="Estúdio ebook.tex" class="proposta__image">
+          <figcaption class="proposta__caption">fig. 02 — ebook.tex studio</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -98,11 +139,6 @@
       <div class="section__header">
         <span class="section__tag">Sobre</span>
         <h2 class="section__title">Forma para grandes ideias</h2>
-        <p class="section__desc">
-A <strong>ebook.tex</strong> é um estúdio especializado na produção editorial de
-           ebooks. Cada projeto é desenvolvido com foco em organização da
-          informação, experiência de leitura e apresentação profissional.
-        </p>
       </div>
       <div class="grid grid--3">
         <article class="card">
@@ -135,7 +171,6 @@ A <strong>ebook.tex</strong> é um estúdio especializado na produção editoria
       <div class="section__header">
         <span class="section__tag">Entregáveis</span>
         <h2 class="section__title">O que você recebe</h2>
-        <p class="section__desc">Cada detalhe foi pensado para valorizar sua mensagem. Projetado para informar. Desenvolvido para impressionar.</p>
       </div>
       <div class="deliverables">
         <div class="deliverable">
@@ -187,13 +222,6 @@ A <strong>ebook.tex</strong> é um estúdio especializado na produção editoria
             <p class="deliverable__text">Formato otimizado para distribuição profissional e impressão sob demanda.</p>
           </div>
         </div>
-        <div class="deliverable">
-          <span class="deliverable__check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>
-          <div>
-            <h3 class="deliverable__title">Mockup para divulgação</h3>
-            <p class="deliverable__text">Imagem de apresentação do seu ebook pronta para redes sociais e site.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -203,7 +231,6 @@ A <strong>ebook.tex</strong> é um estúdio especializado na produção editoria
       <div class="section__header">
         <span class="section__tag">Processo</span>
         <h2 class="section__title">Como funciona</h2>
-        <p class="section__desc">Da primeira conversa à entrega final, cada etapa é conduzida com transparência e cuidado editorial.</p>
       </div>
       <div class="timeline">
         <div class="timeline__item">
@@ -257,7 +284,6 @@ A <strong>ebook.tex</strong> é um estúdio especializado na produção editoria
       <div class="section__header">
         <span class="section__tag">Portfólio</span>
         <h2 class="section__title">Trabalhos recentes</h2>
-        <p class="section__desc">A diferença entre um arquivo e um produto editorial.</p>
       </div>
       <div class="portfolio">
         <article class="portfolio__item">
@@ -439,8 +465,7 @@ A <strong>ebook.tex</strong> é um estúdio especializado na produção editoria
           <div class="footer__col">
             <h4 class="footer__title">Informações</h4>
             <ul>
-              <li><a href="#">Privacidade</a></li>
-              <li><a href="#">Termos de uso</a></li>
+              <li><a href="docs/termo_prestacao_servico.pdf" target="_blank" rel="noopener">Termos de uso</a></li>
             </ul>
           </div>
         </div>
