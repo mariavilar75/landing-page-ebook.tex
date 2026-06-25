@@ -14,7 +14,7 @@
 
   <link rel="preload" href="fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="fonts/Fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="preload" href="img/new_image_hero.png" as="image" fetchpriority="high">
+  <link rel="preload" href="img/image%202.png" as="image" fetchpriority="high">
 
   <title>ebook.tex — Produção Editorial de Ebooks</title>
 
@@ -53,13 +53,18 @@
   </header>
 
   <section class="hero" id="hero">
-    <div class="hero__grid" aria-hidden="true"></div>
-    <span class="crop crop--tl" aria-hidden="true"></span>
-    <span class="crop crop--tr" aria-hidden="true"></span>
-    <span class="crop crop--bl" aria-hidden="true"></span>
-    <span class="crop crop--br" aria-hidden="true"></span>
+    <!-- Fundo decorativo: anéis concêntricos + esferas glossy -->
+    <div class="hero__rings" aria-hidden="true"></div>
+    <div class="hero__spheres" aria-hidden="true">
+      <span class="sphere sphere--1"></span>
+      <span class="sphere sphere--2"></span>
+      <span class="sphere sphere--3"></span>
+      <span class="sphere sphere--4"></span>
+      <span class="sphere sphere--5"></span>
+    </div>
 
     <div class="container hero__inner">
+      <!-- Coluna de texto -->
       <div class="hero__content">
         <p class="hero__badge">
           <span class="hero__badge-dot" aria-hidden="true"></span>
@@ -71,46 +76,85 @@
           <em class="hero__title-accent">autoridade.</em>
         </h1>
         <p class="hero__subtitle">
-          Seu conhecimento merece mais do que um PDF comum.
+          Design editorial estratégico para ebooks, relatórios e materiais que comunicam valor e geram resultados.
         </p>
         <div class="hero__actions">
           <a href="#contato" class="btn btn--primary">
             Solicitar orçamento
             <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
           </a>
-          <a href="#portfolio" class="btn btn--outline">Ver portfólio</a>
+          <a href="#portfolio" class="btn btn--outline">Ver projetos</a>
         </div>
-        <ul class="hero__services" aria-label="O que entregamos">
-          <li>Estruturação editorial</li>
-          <li>Identidade visual</li>
-          <li>Diagramação profissional</li>
-          <li>Entrega em PDF</li>
-        </ul>
       </div>
 
-      <figure class="hero__visual" aria-hidden="true">
-        <div class="hero__visual-frame" id="heroStage">
-          <span class="hero__halo" data-parallax="-0.04"></span>
-          <div class="hero__book-stack">
-            <img src="img/new_image_hero.png" alt="" class="hero__image" id="heroImage"
-                 fetchpriority="high">
-          </div>
-          <span class="hero__shadow"></span>
+      <!-- Coluna visual: tablets em perspectiva 3D + labels -->
+      <div class="hero__showcase" aria-hidden="true">
+        <div class="hero__tablets" id="heroTablets">
+          <figure class="tablet tablet--left">
+            <img src="img/image%203.png" alt="" loading="eager">
+          </figure>
+          <figure class="tablet tablet--right">
+            <img src="img/image%201.png" alt="" loading="eager">
+          </figure>
+          <figure class="tablet tablet--center">
+            <img src="img/image%202.png" alt="" fetchpriority="high">
+          </figure>
         </div>
-        <div class="hero__annotations" aria-hidden="true">
-          <span class="hero__ann hero__ann--tl">
-            <span class="hero__ann-line"></span>
-            <span class="hero__ann-label">diagramação</span>
-          </span>
-        </div>
-        <figcaption class="hero__caption">fig. 01 — ebook.tex</figcaption>
-      </figure>
+
+        <span class="hero__label hero__label--tl">
+          <span class="hero__label-dot"></span>Tipografia editorial
+        </span>
+        <span class="hero__label hero__label--tr">
+          <span class="hero__label-dot"></span>Hierarquia visual
+        </span>
+        <span class="hero__label hero__label--bl">
+          <span class="hero__label-dot"></span>Design focado em leitura
+        </span>
+        <span class="hero__label hero__label--br">
+          <span class="hero__label-dot"></span>Gráficos e informações
+        </span>
+      </div>
     </div>
 
-    <div class="hero__scroll" aria-hidden="true">
-      <span class="hero__scroll-label">rolar</span>
-      <span class="hero__scroll-line"></span>
+    <!-- Barra de features -->
+    <div class="container hero__features">
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </span>
+        <h3 class="feature__title">Design editorial</h3>
+        <p class="feature__text">Projeto gráfico exclusivo alinhado à sua mensagem.</p>
+      </article>
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </span>
+        <h3 class="feature__title">Experiência de leitura</h3>
+        <p class="feature__text">Hierarquia, ritmo e fluidez que prendem a atenção.</p>
+      </article>
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        <h3 class="feature__title">Pronto para publicar</h3>
+        <p class="feature__text">PDF profissional otimizado para venda e distribuição.</p>
+      </article>
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.09 4.94 5.41.41-4.12 3.52 1.27 5.28L12 14.77 7.35 17.67l1.27-5.28L4.5 8.87l5.41-.41z"/></svg>
+        </span>
+        <h3 class="feature__title">Identidade visual</h3>
+        <p class="feature__text">Capas e elementos gráficos que reforçam sua autoridade.</p>
+      </article>
     </div>
+
+    <!-- Indicador de scroll -->
+    <a href="#proposta" class="hero__scroll" aria-label="Role para explorar">
+      <span class="hero__scroll-text">Role para explorar</span>
+      <span class="hero__scroll-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12l4 4 4-4"/></svg>
+      </span>
+    </a>
   </section>
 
   <section class="section section--alt" id="proposta">
@@ -134,42 +178,10 @@
     </div>
   </section>
 
-  <section class="section" id="sobre">
-    <div class="container">
-      <div class="section__header">
-        <span class="section__tag">Sobre</span>
-        <h2 class="section__title">Forma para grandes ideias</h2>
-      </div>
-      <div class="grid grid--3">
-        <article class="card">
-          <div class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 11h8"/><path d="M8 7h6"/></svg>
-          </div>
-          <h3 class="card__title">Organização editorial</h3>
-          <p class="card__text">Conhecimento bem apresentado comunica melhor. Estruturamos cada conteúdo com hierarquia clara e fluidez narrativa.</p>
-        </article>
-        <article class="card">
-          <div class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21h8"/><path d="m15 5 4 4"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
-          </div>
-          <h3 class="card__title">Identidade visual</h3>
-          <p class="card__text">Seu conteúdo merece mais do que um arquivo PDF. Criamos capa, paleta e tipografia que traduzem a essência do seu trabalho.</p>
-        </article>
-        <article class="card">
-          <div class="card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-          </div>
-          <h3 class="card__title">Diagramação profissional</h3>
-          <p class="card__text">Organização, clareza e identidade em cada página. Da abertura dos capítulos à numeração, tudo é pensado para valorizar sua mensagem.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <section class="section section--alt" id="entregaveis">
     <div class="container">
       <div class="section__header">
-        <span class="section__tag">Entregáveis</span>
+        <span class="section__tag">Projeto</span>
         <h2 class="section__title">O que você recebe</h2>
       </div>
       <div class="deliverables">

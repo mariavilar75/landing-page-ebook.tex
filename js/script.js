@@ -120,46 +120,52 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(s => sectionObserver.observe(s));
 
   // ----------------------------------------------------------
-  // 6. HERO — parallax 3D do palco + camadas de profundidade
+  // 6. HERO — parallax 3D dos tablets
   // ----------------------------------------------------------
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const heroStage = document.getElementById('heroStage');
+  const heroTablets = document.getElementById('heroTablets');
   const hero = document.getElementById('hero');
 
-  if (heroStage && hero && !prefersReducedMotion && finePointer) {
-    const layers = hero.querySelectorAll('[data-parallax]');
-    let raf = null, tx = 0, ty = 0;
+  if (heroTablets && hero && !prefersReducedMotion && finePointer) {
+    let raf = null;
 
     const onMove = (e) => {
       const rect = hero.getBoundingClientRect();
-      tx = (e.clientX - rect.left) / rect.width  - 0.5;
-      ty = (e.clientY - rect.top)  / rect.height - 0.5;
+      const tx = (e.clientX - rect.left) / rect.width  - 0.5;
+      const ty = (e.clientY - rect.top)  / rect.height - 0.5;
 
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        heroStage.style.transition = 'transform 0.2s var(--e-out)';
-        heroStage.style.transform =
-          `rotateX(${ty * -4}deg) rotateY(${tx * 6}deg) translate3d(${tx * 10}px, ${ty * 8}px, 0)`;
-        layers.forEach(layer => {
-          const depth = parseFloat(layer.dataset.parallax) || 0;
-          layer.style.transform = `translate3d(${tx * depth * 100}px, ${ty * depth * 100}px, 0)`;
-        });
+        heroTablets.style.transition = 'transform 0.25s var(--e-out)';
+        /* rotação sutil do conjunto, mantendo o preserve-3d */
+        heroTablets.style.transform =
+          `rotateX(${ty * -6}deg) rotateY(${tx * 10}deg)`;
       });
     };
 
     const onLeave = () => {
       if (raf) cancelAnimationFrame(raf);
-      heroStage.style.transition = 'transform 0.6s var(--e-out)';
-      heroStage.style.transform = '';
-      layers.forEach(layer => {
-        layer.style.transition = 'transform 0.6s var(--e-out)';
-        layer.style.transform = '';
-      });
+      heroTablets.style.transition = 'transform 0.6s var(--e-out)';
+      heroTablets.style.transform = '';
     };
 
     hero.addEventListener('mousemove', onMove);
     hero.addEventListener('mouseleave', onLeave);
+  }
+
+  // Reveal escalonado das features
+  const heroFeatures = document.querySelectorAll('.hero__features .feature');
+  if (heroFeatures.length) {
+    heroFeatures.forEach((f, i) => {
+      f.style.opacity = '0';
+      f.style.transform = 'translateY(20px)';
+      f.style.transition =
+        `opacity 0.7s var(--e-out) ${0.7 + i * 0.1}s, transform 0.7s var(--e-out) ${0.7 + i * 0.1}s`;
+    });
+    requestAnimationFrame(() => {
+      heroFeatures.forEach(f => { f.style.opacity = '1'; f.style.transform = 'none'; });
+    });
   }
 
   // ----------------------------------------------------------
