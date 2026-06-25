@@ -49,17 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. SCROLL REVEAL — com stagger por grupo
   // ----------------------------------------------------------
   const staggerGroups = document.querySelectorAll(
-    '.grid--3, .grid--2, .deliverables, .stack-portfolio, .testimonials, .timeline'
+    '.grid--3, .grid--2, .projetos__grid, .stack-portfolio, .proc__track'
   );
 
   staggerGroups.forEach(group => {
     Array.from(group.children).forEach((child, i) => {
-      child.style.setProperty('--stagger-delay', `${i * 75}ms`);
+      child.style.setProperty('--stagger-delay', `${i * 100}ms`);
     });
   });
 
   const revealElements = document.querySelectorAll(
-    '.card, .deliverable, .timeline__item, .testimonial, .section__header, .faq__item'
+    '.card, .gcard, .proc__step, .section__header, .faq__item, .proposta__body, .proposta__visual'
   );
 
   if (revealElements.length) {
