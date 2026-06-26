@@ -170,7 +170,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 1000;
+  z-index: 10001;
+  transform: translateZ(0);
   padding: 1.5rem 0;
   transition: padding var(--t) var(--e-inout), background var(--t) var(--e-inout),
               box-shadow var(--t) var(--e-inout), border-color var(--t) var(--e-inout);
@@ -1772,7 +1773,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 @media (max-width: 720px) {
-  .nav__toggle { display: flex; position: relative; z-index: 10000; }
+  .nav__toggle { display: flex; }
   .nav__list {
     position: fixed;
     inset: 0;
