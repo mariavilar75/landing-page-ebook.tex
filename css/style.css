@@ -1804,6 +1804,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
     font-size: 1.05rem;
     text-align: center;
   }
+  .nav__list li:last-child {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+  }
   .nav__link--cta {
     display: inline-block;
     margin-top: 2rem;
