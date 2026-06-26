@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ebook.tex — Estúdio especializado em produção editorial de ebooks. Estruturação, diagramação e identidade visual para o seu conteúdo.">
+  <meta name="theme-color" content="#14201A">
+
+  <meta property="og:title" content="ebook.tex — Produção Editorial de Ebooks">
+  <meta property="og:description" content="Estrutura editorial, identidade visual e diagramação profissional para transformar conhecimento em material digital pronto para distribuição.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ebooktex.com">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="preload" href="fonts/Manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="img/image%202.png" as="image" fetchpriority="high">
+
+  <title>ebook.tex — Produção Editorial de Ebooks</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="ebook.tex — Início">
+        <span class="logo__mark" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="2" y="2" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 8h12M8 13h10M8 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo__text">ebook<span class="logo__dot">.</span>tex</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+          <span class="nav__toggle-bar"></span>
+        </button>
+        <ul class="nav__list" id="navList">
+          <li><a href="#proposta" class="nav__link">Estúdio</a></li>
+          <li><a href="#entregaveis" class="nav__link">Projeto</a></li>
+          <li><a href="#processo" class="nav__link">Processo</a></li>
+          <li><a href="#portfolio" class="nav__link">Portfólio</a></li>
+          <li><a href="#faq" class="nav__link">FAQ</a></li>
+          <li><a href="#contato" class="nav__link nav__link--cta">Solicitar orçamento</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <!-- Fundo decorativo: anéis concêntricos + esferas glossy -->
+    <div class="hero__rings" aria-hidden="true"></div>
+    <div class="hero__spheres" aria-hidden="true">
+      <span class="sphere sphere--1"></span>
+      <span class="sphere sphere--2"></span>
+      <span class="sphere sphere--3"></span>
+      <span class="sphere sphere--4"></span>
+      <span class="sphere sphere--5"></span>
+    </div>
+
+    <div class="container hero__inner">
+      <!-- Coluna de texto -->
+      <div class="hero__content">
+        <p class="hero__badge">
+          <span class="hero__badge-dot" aria-hidden="true"></span>
+          Estúdio editorial
+        </p>
+        <h1 class="hero__title">
+          Conteúdo que<br>
+          imprime<br>
+          <em class="hero__title-accent">autoridade.</em>
+        </h1>
+        <p class="hero__subtitle">
+          Design editorial estratégico para ebooks, relatórios e materiais que comunicam valor e geram resultados.
+        </p>
+        <div class="hero__actions">
+          <a href="#contato" class="btn btn--primary">
+            Solicitar orçamento
+            <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+          </a>
+          <a href="#portfolio" class="btn btn--outline">Ver projetos</a>
+        </div>
+      </div>
+
+      <!-- Coluna visual: tablets em perspectiva 3D + labels -->
+      <div class="hero__showcase" aria-hidden="true">
+        <div class="hero__tablets" id="heroTablets">
+          <figure class="tablet tablet--left">
+            <img src="img/image%203.png" alt="" loading="eager">
+          </figure>
+          <figure class="tablet tablet--right">
+            <img src="img/image%201.png" alt="" loading="eager">
+          </figure>
+          <figure class="tablet tablet--center">
+            <img src="img/image%202.png" alt="" fetchpriority="high">
+          </figure>
+        </div>
+
+        <span class="hero__label hero__label--tl">
+          <span class="hero__label-dot"></span>Tipografia editorial
+        </span>
+        <span class="hero__label hero__label--tr">
+          <span class="hero__label-dot"></span>Hierarquia visual
+        </span>
+        <span class="hero__label hero__label--bl">
+          <span class="hero__label-dot"></span>Design focado em leitura
+        </span>
+        <span class="hero__label hero__label--br">
+          <span class="hero__label-dot"></span>Gráficos e informações
+        </span>
+      </div>
+    </div>
+
+    <!-- Barra de features -->
+    <div class="container hero__features">
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </span>
+        <h3 class="feature__title">Design editorial</h3>
+        <p class="feature__text">Projeto gráfico exclusivo alinhado à sua mensagem.</p>
+      </article>
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </span>
+        <h3 class="feature__title">Experiência de leitura</h3>
+        <p class="feature__text">Hierarquia, ritmo e fluidez que prendem a atenção.</p>
+      </article>
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </span>
+        <h3 class="feature__title">Pronto para publicar</h3>
+        <p class="feature__text">PDF profissional otimizado para venda e distribuição.</p>
+      </article>
+      <article class="feature">
+        <span class="feature__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.09 4.94 5.41.41-4.12 3.52 1.27 5.28L12 14.77 7.35 17.67l1.27-5.28L4.5 8.87l5.41-.41z"/></svg>
+        </span>
+        <h3 class="feature__title">Identidade visual</h3>
+        <p class="feature__text">Capas e elementos gráficos que reforçam sua autoridade.</p>
+      </article>
+    </div>
+
+    <!-- Indicador de scroll -->
+    <a href="#proposta" class="hero__scroll" aria-label="Role para explorar">
+      <span class="hero__scroll-text">Role para explorar</span>
+      <span class="hero__scroll-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12l4 4 4-4"/></svg>
+      </span>
+    </a>
+  </section>
+
+  <section class="section section--dark" id="proposta">
+    <div class="section-orbs" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">O estúdio</span>
+        <h2 class="section__title">Nossa proposta</h2>
+      </div>
+      <div class="proposta">
+        <div class="proposta__body">
+          <p class="proposta__lead">A ebook.tex é um estúdio especializado na produção editorial de materiais digitais para profissionais, especialistas e empresas que desejam transformar conhecimento em publicações com padrão profissional.</p>
+          <p>Cada projeto é construído a partir de uma metodologia que integra estrutura editorial, identidade visual e diagramação profissional, transformando conhecimento em materiais digitais preparados para informar, representar e gerar credibilidade.</p>
+          <p>O processo pode partir de um conteúdo já existente, como documentos, rascunhos ou materiais de apoio fornecidos pelo cliente, ou ser desenvolvido desde o início, a partir de uma ideia, objetivo ou tema definido no briefing online, realizado por meio de um formulário simples e objetivo.</p>
+          <p class="proposta__closing">Mais do que diagramar páginas, a ebook.tex desenvolve publicações pensadas para comunicar com precisão e profissionalismo.</p>
+        </div>
+        <figure class="proposta__visual">
+          <img src="img/a_nossa_proposta.png" alt="Estúdio ebook.tex" class="proposta__image">
+          <figcaption class="proposta__caption">fig. 02 — ebook.tex studio</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="entregaveis">
+    <div class="section-orbs" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container">
+      <div class="projetos">
+
+        <!-- Coluna esquerda: tag + headline + mockup 3D -->
+        <div class="projetos__intro">
+          <p class="projetos__tag">Projetos</p>
+          <h2 class="projetos__headline">O que você recebe</h2>
+
+          <div class="mockup" aria-hidden="true">
+            <span class="mockup__ring"></span>
+            <span class="orb orb--m1"></span>
+            <span class="orb orb--m2"></span>
+            <figure class="mockup__tablet">
+              <img src="img/tablet_section2.png" alt="">
+            </figure>
+          </div>
+        </div>
+
+        <!-- Coluna direita: grid de cards glass -->
+        <div class="projetos__grid">
+
+          <article class="gcard">
+            <div class="gcard__top">
+              <span class="gcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20"/><path d="M8 11h8"/><path d="M8 7h6"/></svg></span>
+              <span class="gcard__num">01</span>
+            </div>
+            <h3 class="gcard__title">Estrutura editorial</h3>
+            <p class="gcard__text">Hierarquia de títulos, sumário e fluxo de leitura organizados.</p>
+            <span class="gcard__line" aria-hidden="true"></span>
+          </article>
+
+          <article class="gcard">
+            <div class="gcard__top">
+              <span class="gcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21h8"/><path d="m15 5 4 4"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg></span>
+              <span class="gcard__num">03</span>
+            </div>
+            <h3 class="gcard__title">Diagramação profissional</h3>
+            <p class="gcard__text">Tipografia, margens, espaçamentos e alinhamento editorial precisos.</p>
+            <span class="gcard__line" aria-hidden="true"></span>
+          </article>
+
+          <article class="gcard">
+            <div class="gcard__top">
+              <span class="gcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></svg></span>
+              <span class="gcard__num">04</span>
+            </div>
+            <h3 class="gcard__title">Capa personalizada</h3>
+            <p class="gcard__text">Arte exclusiva alinhada à identidade visual do seu projeto.</p>
+            <span class="gcard__line" aria-hidden="true"></span>
+          </article>
+
+          <article class="gcard">
+            <div class="gcard__top">
+              <span class="gcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></svg></span>
+              <span class="gcard__num">05</span>
+            </div>
+            <h3 class="gcard__title">Sumário clicável</h3>
+            <p class="gcard__text">Navegação interna funcional para leitura em qualquer dispositivo.</p>
+            <span class="gcard__line" aria-hidden="true"></span>
+          </article>
+
+          <article class="gcard">
+            <div class="gcard__top">
+              <span class="gcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <span class="gcard__num">06</span>
+            </div>
+            <h3 class="gcard__title">Até duas revisões</h3>
+            <p class="gcard__text">Ajustes refinados até que o resultado esteja exatamente como planejado.</p>
+            <span class="gcard__line" aria-hidden="true"></span>
+          </article>
+
+          <article class="gcard">
+            <div class="gcard__top">
+              <span class="gcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <span class="gcard__num">07</span>
+            </div>
+            <h3 class="gcard__title">Arquivo final em PDF</h3>
+            <p class="gcard__text">Formato otimizado para distribuição profissional e impressão sob demanda.</p>
+            <span class="gcard__line" aria-hidden="true"></span>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="processo">
+    <div class="section-orbs" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Processo</span>
+        <h2 class="section__title">Como funciona</h2>
+      </div>
+      <div class="proc">
+        <span class="proc__line" aria-hidden="true"></span>
+        <ol class="proc__track">
+
+          <li class="proc__step">
+            <div class="proc__node"><span class="proc__num">01</span></div>
+            <span class="proc__dot" aria-hidden="true"></span>
+            <article class="proc__card">
+              <h3 class="proc__title"><span class="proc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg></span>Briefing</h3>
+              <p class="proc__text">Tudo começa com o preenchimento de um formulário de briefing online. A partir dele, conhecemos seu conteúdo, seus objetivos e o público-alvo para definir escopo, prazos e referências visuais.</p>
+            </article>
+          </li>
+
+          <li class="proc__step">
+            <div class="proc__node"><span class="proc__num">02</span></div>
+            <span class="proc__dot" aria-hidden="true"></span>
+            <article class="proc__card">
+              <h3 class="proc__title"><span class="proc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5H3"/><path d="M10 12H3"/><path d="M10 19H3"/><circle cx="17" cy="15" r="3"/><path d="m21 19-1.9-1.9"/></svg></span>Planejamento editorial</h3>
+              <p class="proc__text">Estruturamos a hierarquia do conteúdo, organizamos seções e definimos o projeto gráfico do ebook.</p>
+            </article>
+          </li>
+
+          <li class="proc__step">
+            <div class="proc__node"><span class="proc__num">03</span></div>
+            <span class="proc__dot" aria-hidden="true"></span>
+            <article class="proc__card">
+              <h3 class="proc__title"><span class="proc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 21h8"/><path d="m15 5 4 4"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg></span>Produção</h3>
+              <p class="proc__text">Diagramação completa, inserção de elementos gráficos, ajustes tipográficos e preparação dos arquivos.</p>
+            </article>
+          </li>
+
+          <li class="proc__step">
+            <div class="proc__node"><span class="proc__num">04</span></div>
+            <span class="proc__dot" aria-hidden="true"></span>
+            <article class="proc__card">
+              <h3 class="proc__title"><span class="proc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg></span>Revisão</h3>
+              <p class="proc__text">Envio da primeira versão para análise do cliente, realização de até duas rodadas de ajustes e aprovação final do material.</p>
+            </article>
+          </li>
+
+          <li class="proc__step">
+            <div class="proc__node"><span class="proc__num">05</span></div>
+            <span class="proc__dot" aria-hidden="true"></span>
+            <article class="proc__card">
+              <h3 class="proc__title"><span class="proc__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg></span>Entrega</h3>
+              <p class="proc__text">Revisão final, aplicação de ajustes e envio dos arquivos prontos para publicação.</p>
+            </article>
+          </li>
+
+        </ol>
+      </div>
+      <div class="section__action">
+        <a href="#contato" class="btn btn--primary">
+          Começar meu projeto
+          <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg>
+        </a>
+        <a href="#faq" class="btn btn--secondary">Conhecer o processo</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="portfolio">
+    <div class="section-orbs" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Portfólio</span>
+        <h2 class="section__title">Projetos editoriais</h2>
+      </div>
+
+      <!-- Pilha de capas — interação por hover -->
+      <div class="stack-wrap">
+        <div class="stack-portfolio" id="portfolioStack" role="list" aria-label="Portfólio de ebooks">
+
+          <article class="stack-card" role="listitem">
+            <div class="stack-card__book">
+              <img src="img/Capas%20Ebook.tex%20(2).png" alt="Capa do ebook Gestão Financeira" class="stack-card__cover">
+              <span class="stack-card__spine" aria-hidden="true"></span>
+              <span class="stack-card__shine" aria-hidden="true"></span>
+              <div class="stack-card__info">
+                <span class="stack-card__genre">Finanças</span>
+                <h3 class="stack-card__title">Gestão Financeira</h3>
+              </div>
+            </div>
+          </article>
+
+          <article class="stack-card" role="listitem">
+            <div class="stack-card__book">
+              <img src="img/Capas%20Ebook.tex%20(4).png" alt="Capa do ebook Como transformar uma ideia em um produto digital" class="stack-card__cover">
+              <span class="stack-card__spine" aria-hidden="true"></span>
+              <span class="stack-card__shine" aria-hidden="true"></span>
+              <div class="stack-card__info">
+                <span class="stack-card__genre">Editorial</span>
+                <h3 class="stack-card__title">Como transformar uma ideia em um produto digital</h3>
+              </div>
+            </div>
+          </article>
+
+          <article class="stack-card" role="listitem">
+            <div class="stack-card__book">
+              <img src="img/Capas%20Ebook.tex%20(3).png" alt="Capa do ebook IA para quem quer sair na frente" class="stack-card__cover">
+              <span class="stack-card__spine" aria-hidden="true"></span>
+              <span class="stack-card__shine" aria-hidden="true"></span>
+              <div class="stack-card__info">
+                <span class="stack-card__genre">Tecnologia</span>
+                <h3 class="stack-card__title">IA para quem quer sair na frente</h3>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="section__action">
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="btn btn--primary btn--whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="faq">
+    <div class="section-orbs" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">FAQ</span>
+        <h2 class="section__title">Perguntas frequentes</h2>
+      </div>
+      <div class="faq">
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Como funciona o processo?</span>
+            <span class="faq__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq__answer"><p>Tudo começa com o preenchimento de um formulário de briefing online, simples e rápido. A partir daí, desenvolvemos o planejamento editorial, produzimos o conteúdo diagramado e entregamos os arquivos finais. Todo o processo é acompanhado por você.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Posso enviar meu próprio conteúdo?</span>
+            <span class="faq__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq__answer"><p>Sim. Você pode enviar o conteúdo em formato de texto, documentos do Word, apresentações ou arquivos .tex. Nós organizamos e estruturamos o material dentro do projeto editorial.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Posso enviar a minha própria capa?</span>
+            <span class="faq__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq__answer"><p>Sim. Se você já possui uma capa desenvolvida por outra pessoa ou ferramenta, podemos integrá-la ao projeto sem nenhum problema. Basta enviar o arquivo em alta resolução e indicar essa preferência no formulário de briefing online, disponível ao iniciar o projeto. Caso prefira, também oferecemos a criação da capa como parte do pacote editorial, garantindo coesão visual entre a capa e o miolo do ebook.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>O ebook fica pronto em quanto tempo?</span>
+            <span class="faq__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq__answer"><p>O prazo varia conforme a complexidade e o volume do conteúdo. Projetos simples podem ficar prontos em até 5 dias úteis. Projetos mais extensos têm cronograma definido a partir das informações coletadas no formulário de briefing online.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Recebo arquivo editável?</span>
+            <span class="faq__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq__answer"><p>O produto final é entregue exclusivamente em PDF, otimizado para distribuição profissional. O arquivo editável (.tex) não acompanha o projeto, garantindo a integridade editorial do trabalho realizado.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__question" aria-expanded="false">
+            <span>Posso solicitar alterações?</span>
+            <span class="faq__icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq__answer"><p>Sim. Todos os projetos incluem até duas rodadas de revisão. Alterações adicionais podem ser solicitadas com custo ajustado conforme o escopo.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta" id="contato">
+    <div class="section-orbs" aria-hidden="true">
+      <span class="orb orb--1"></span>
+      <span class="orb orb--2"></span>
+      <span class="orb orb--3"></span>
+    </div>
+    <div class="container">
+      <div class="cta__inner">
+        <h2 class="cta__title">Transforme sua ideia<br>em um ebook profissional</h2>
+        <p class="cta__text">Cada projeto é único e merece um cuidado editorial especial. Solicite um orçamento personalizado e descubra como podemos dar vida ao seu conteúdo.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn btn--primary btn--large">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="#" class="logo" aria-label="ebook.tex — Início">
+            <span class="logo__mark" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                <rect x="2" y="2" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 8h12M8 13h10M8 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span class="logo__text">ebook<span class="logo__dot">.</span>tex</span>
+          </a>
+          <p class="footer__desc">Produção editorial de ebooks.<br>Estrutura, identidade e diagramação profissional.</p>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4 class="footer__title">Navegação</h4>
+            <ul>
+              <li><a href="#proposta">Estúdio</a></li>
+              <li><a href="#entregaveis">Projeto</a></li>
+              <li><a href="#processo">Processo</a></li>
+              <li><a href="#portfolio">Portfólio</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__title">Contato</h4>
+            <ul class="footer__col--icons">
+              <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener"><svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>WhatsApp</a></li>
+              <li><a href="mailto:ebooktex.contato@gmail.com"><svg class="footer__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>ebooktex.contato@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 class="footer__title">Informações</h4>
+            <ul>
+              <li><a href="docs/termo_prestacao_servico.pdf" target="_blank" rel="noopener">Termos de uso</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 ebook.tex — Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal PDF viewer -->
+  <div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Visualização do ebook" hidden>
+    <div class="pdf-modal__backdrop"></div>
+    <div class="pdf-modal__container">
+      <button class="pdf-modal__close" id="pdfModalClose" aria-label="Fechar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <iframe class="pdf-modal__frame" id="pdfFrame" src="" title="Visualização do ebook"></iframe>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
